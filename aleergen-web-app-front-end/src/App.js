@@ -4,7 +4,7 @@ import './index.css';
 
 function App() {
   const [menu, setMenu] = useState([]);
-  const [allergies, setAllergies] = useState([]);
+  const [allergies] = useState([]);
 
   // fetch menu from API and update state
   useEffect(() => {

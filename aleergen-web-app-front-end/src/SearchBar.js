@@ -18,7 +18,6 @@ const SearchBar = ({ setMenu }) => {
             });
 
             // Do something with the response data
-            setMenu(response.data);
             setResponse(response.data);
             console.log(response.data);
         } catch (error) {
