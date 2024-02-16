@@ -1,8 +1,6 @@
 
 v
 Fsrc/main/java/com/miguel/allergenwebapp/AllergenWebAppApplication.java,3\4\3456ba155734d779af3808508ed00833c381bfa3
-r
-Bsrc/main/java/com/miguel/allergenwebapp/service/AlergyService.java,c\3\c3c649ea5ab39e485aae1ee5cb14605ece57f055
 j
 :src/main/java/com/miguel/allergenwebapp/model/Allergy.java,c\2\c2494125c194fd2d3d4a23d5213fdbcdcc93a558
 y
@@ -19,5 +17,7 @@ y
 Isrc/main/java/com/miguel/allergenwebapp/controller/AllergyController.java,4\8\4820db1e640bafab96418459973d3d9fa44e150b
 }
 Msrc/main/java/com/miguel/allergenwebapp/repository/DishAllergyRepository.java,5\3\53fd4c45921bbb7275c143a1fdf8bcbca3a06d1e
+r
+Bsrc/main/java/com/miguel/allergenwebapp/service/AlergyService.java,c\3\c3c649ea5ab39e485aae1ee5cb14605ece57f055
 x
 Hsrc/main/java/com/miguel/allergenwebapp/service/AllergyServiceLogic.java,c\a\ca828347976ffbf887a7fcaf0d7d1458b6bae2df

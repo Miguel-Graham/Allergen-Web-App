@@ -36,5 +36,4 @@ public class AllergyServiceLogic implements AlergyService{
     }
 
 
-
 }
