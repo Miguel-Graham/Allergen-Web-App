@@ -56,7 +56,7 @@ const SearchBar = ({ setMenu }) => {
             </button>
             {response && (
                 <div className="response-container mt-2">
-                    <h5>Response:</h5>
+                    <h5>Allergens:</h5>
                     <pre>{JSON.stringify(response, null, 2)}</pre>
                 </div>
             )}
