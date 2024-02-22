@@ -10,7 +10,7 @@ const SearchBar = ({ setMenu }) => {
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/allergy/getAllergy", {
+            const response = await axios.get("/api/allergy/getAllergy", {
                 params: {
                     dishName: searchTerm,
                     allergyName: selectedAllergy,
