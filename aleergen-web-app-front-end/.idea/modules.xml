@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/aleergen-web-app-front-end.iml" filepath="$PROJECT_DIR$/.idea/aleergen-web-app-front-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/allergen-web-app-front-end.iml" filepath="$PROJECT_DIR$/.idea/allergen-web-app-front-end.iml" />
     </modules>
   </component>
 </project>

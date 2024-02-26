@@ -11,7 +11,7 @@ public class AllergyController {
     @Autowired
     private AllergyServiceLogic allergyServiceLogic;
 
-    @CrossOrigin(origins = "http://localhost:3000" )
+    //@CrossOrigin(origins = "http://localhost:3000" )
     @GetMapping("/getAllergy")
     public ResponseEntity<String> getAllergy(@RequestParam String dishName, @RequestParam String allergyName) {
         String result = allergyServiceLogic.getAllergy(dishName, allergyName);

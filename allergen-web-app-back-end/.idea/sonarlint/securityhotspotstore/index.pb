@@ -21,3 +21,10 @@ r
 Bsrc/main/java/com/miguel/allergenwebapp/service/AlergyService.java,c\3\c3c649ea5ab39e485aae1ee5cb14605ece57f055
 }
 Msrc/main/java/com/miguel/allergenwebapp/repository/DishAllergyRepository.java,5\3\53fd4c45921bbb7275c143a1fdf8bcbca3a06d1e
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
