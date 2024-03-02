@@ -1,0 +1,17 @@
+version: "3"
+services:
+  allergen-be:
+    build: ./allergen-web-app-back-end
+    container_name: "allergen-be"
+
+  allergen-fe:
+    build: ./aleergen-web-app-front-end
+    container_name: "allergen-fe"
+    depends_on:
+      - allergen-be
+  proxy:
+    build: ./nginx/conf
+    container_name: "book-portal-proxy"
+    restart: always
+    ports:
+      - "80:80"
