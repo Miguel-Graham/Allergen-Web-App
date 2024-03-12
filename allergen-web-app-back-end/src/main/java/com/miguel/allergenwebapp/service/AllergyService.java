@@ -1,6 +1,6 @@
 package com.miguel.allergenwebapp.service;
 
-public interface AlergyService {
+public interface AllergyService {
     public String getAllergy(String dishName, String allergyName);
 
 }

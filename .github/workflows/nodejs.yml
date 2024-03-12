@@ -1,0 +1,71 @@
+env:
+  CI: false
+
+  name: Node.js CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+
+    name: Node.js Run and Install
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.x]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./aleergen-web-app-front-end/package-lock.json
+
+      - run: npm install
+        working-directory: ./aleergen-web-app-front-end
+      - run: npm run build --if-present
+        working-directory: ./aleergen-web-app-front-end
+
+docker:
+  name: Docker Build and Push
+  runs-on: ubuntu-latest
+  needs: build
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN_TWO }}
+
+    - name: Set up Docker Buildx
+      uses: docker setup-buildx-action@v1
+
+    - name: Build and push FE
+      uses: docker/build-push-action@v3
+      with:
+        context: ./aleergen-web-app-front-end
+        file: ./aleergen-web-app-front-end/Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/allergen-web-app-allergen-fe:latest
+
+    - name: Build and push Nginx
+      uses: docker/build-push-action@v3
+      with:
+        context: ./nginx
+        file: ./nginx/Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/allergen-web-app-proxy:latest
