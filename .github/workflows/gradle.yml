@@ -20,7 +20,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN_TWO }}
 
       - name: Set up Docker Buildx
@@ -32,4 +32,4 @@ jobs:
           context: ./allergen-web-app-back-end
           file: ./allergen-web-app-back-end/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/allergen-web-app-allergen-be:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/allergen-web-app-allergen-be:latest

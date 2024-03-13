@@ -47,7 +47,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN_TWO }}
 
       - name: Set up Docker Buildx
@@ -59,7 +59,7 @@ jobs:
           context: ./aleergen-web-app-front-end
           file: ./aleergen-web-app-front-end/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/allergen-web-app-allergen-fe:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/allergen-web-app-allergen-fe:latest
 
       - name: Build and push Nginx
         uses: docker/build-push-action@v3
@@ -67,4 +67,4 @@ jobs:
           context: ./nginx
           file: ./nginx/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/allergen-web-app-proxy:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/allergen-web-app-proxy:latest
