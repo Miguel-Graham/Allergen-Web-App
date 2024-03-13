@@ -65,6 +65,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./nginx
-          file: ./nginx/Dockerfile
+          file: ./nginx/conf/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/allergen-web-app-proxy:latest
