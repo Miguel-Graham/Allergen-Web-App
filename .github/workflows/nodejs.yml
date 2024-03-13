@@ -1,7 +1,7 @@
 env:
   CI: false
 
-  name: Node.js CI
+name: Node.js CI
 
 on:
   push:
@@ -12,7 +12,6 @@ on:
 
 jobs:
   build:
-
     name: Node.js Run and Install
     runs-on: ubuntu-latest
 
@@ -36,8 +35,6 @@ jobs:
       - run: npm run build --if-present
         working-directory: ./aleergen-web-app-front-end
 
-
-
   docker:
     name: Docker Build and Push
     runs-on: ubuntu-latest
@@ -54,7 +51,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN_TWO }}
 
       - name: Set up Docker Buildx
-        uses: docker setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v1
 
       - name: Build and push FE
         uses: docker/build-push-action@v3
