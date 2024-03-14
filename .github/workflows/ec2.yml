@@ -18,7 +18,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          instance-id: ${{ secrets.AWS_INSTANCE_ID }}
+          instance-id: ${{ secrets.INSTANCE_ID }}
           working-directory: /home/ubuntu
           command: |
             sudo docker-compose stop
