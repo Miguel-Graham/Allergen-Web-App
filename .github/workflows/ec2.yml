@@ -27,4 +27,4 @@ jobs:
             sudo docker-compose rm -f
             sudo docker image prune -af
           comment: |
-            Docker Compose file re-pulls newer versions of allergen-app images and runs on the EC2 instance
+            Docker Compose file re-pulls newer versions of all allergen-app images and runs on the EC2 instance
