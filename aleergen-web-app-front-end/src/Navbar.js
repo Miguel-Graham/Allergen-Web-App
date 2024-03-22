@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#">
-                Allergy App
+                Allerware
             </a>
             <button
                 className="navbar-toggler"
@@ -22,16 +22,6 @@ function Navbar() {
                     <li className="nav-item">
                         <a className="nav-link" href="#">
                             Home
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">
-                            Menu
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">
-                            Contact
                         </a>
                     </li>
                 </ul>
