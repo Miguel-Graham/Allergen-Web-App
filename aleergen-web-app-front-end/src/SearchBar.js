@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./SearchBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,6 +7,20 @@ const SearchBar = ({ setMenu }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedAllergy, setSelectedAllergy] = useState("");
     const [response, setResponse] = useState("");
+    const [allergies, setAllergies] = useState([]);
+
+    useEffect(() => {
+        const fetchAllergies = async () => {
+            try {
+                const response = await axios.get("/allergy/getAllergies"); // Replace with your API endpoint
+                setAllergies(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchAllergies();
+    }, []);
 
     const handleSearch = async () => {
         try {
@@ -44,13 +58,11 @@ const SearchBar = ({ setMenu }) => {
                 onChange={handleSelectChange}
             >
                 <option value="">Select Allergy</option>
-                <option value="peanuts">Peanuts</option>
-                <option value="dairy">Dairy</option>
-                <option value="gluten">Gluten</option>
-                <option value="Nuts">Nuts</option>
-                <option value="shellfish">Shellfish</option>
-
+                {allergies.map((allergy) => (
+                    <option key={allergy.id} value={allergy.name}>{allergy.name}</option>
+                ))}
             </select>
+
             <button className="btn btn-primary mt-2" onClick={handleSearch}>
                 Search
             </button>
