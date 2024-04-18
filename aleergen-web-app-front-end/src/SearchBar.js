@@ -19,7 +19,7 @@ const SearchBar = ({ setMenu }) => {
             }
         };
 
-        fetchAllergies();
+        fetchAllergies().then(r => console.log(r));
     }, []);
 
     const handleSearch = async () => {
