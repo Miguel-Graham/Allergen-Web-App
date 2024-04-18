@@ -21,9 +21,9 @@ public class AllergyServiceLogic implements AllergyService {
 
     @Override
     public String getAllergy(String dishName, String allergyName) {
-        Dish dish = dishRepository.findByName(dishName);
+        Dish dish = dishRepository.findByName(dishName.toUpperCase());
         if(dish == null) return "DISH NOT FOUND";
-        Allergy allergy = allergyRepository.findByName(allergyName);
+        Allergy allergy = allergyRepository.findByName(allergyName.toUpperCase());
         DishAllergy dishAllergy = dishAllergyRepository.findByDishIdAndAllergyId(dish.getId(), allergy.getId());
 
         if (dishAllergy!= null) {
