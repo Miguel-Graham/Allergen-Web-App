@@ -9,6 +9,8 @@ import com.miguel.allergenwebapp.repository.DishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AllergyServiceLogic implements AllergyService {
     @Autowired
@@ -31,6 +33,11 @@ public class AllergyServiceLogic implements AllergyService {
         } else {
             return "NO ALLERGIES FOUND";
         }
+    }
+
+    @Override
+    public List<Allergy> getAllAllergies() {
+        return allergyRepository.findAll();
     }
 
 
