@@ -5,6 +5,6 @@ ADD . .
 RUN ./gradlew  clean build
 
 FROM openjdk:18-alpine
-COPY /build/libs/allergen-web-app-0.0.1-SNAPSHOT.jar /usr/app/allergen-web-app-0.0.1-SNAPSHOT.jar
+COPY --from=build /usr/src/app/targetallergen-web-app-0.0.1-SNAPSHOT.jar /usr/app/allergen-web-app-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/app/allergen-web-app-0.0.1-SNAPSHOT.jar"]
