@@ -13,7 +13,7 @@ const SearchBar = () => {
     useEffect(() => {
         const fetchAllergies = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/allergy/getAllergyList");
+                const response = await axios.get("/allergy/getAllergyList");
                 setAllergies(response.data);
             } catch (error) {
                 console.error(error);
