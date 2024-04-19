@@ -8,18 +8,20 @@ const SearchBar = ({ setMenu }) => {
     const [selectedAllergy, setSelectedAllergy] = useState("");
     const [response, setResponse] = useState("");
     const [allergies, setAllergies] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchAllergies = async () => {
             try {
-                const response = await axios.get("/allergy/getAllergies"); // Replace with your API endpoint
+                const response = await axios.get("/allergy/getAllergies");
                 setAllergies(response.data);
             } catch (error) {
                 console.error(error);
+                setError("Error fetching allergies. Please try again.");
             }
         };
 
-        fetchAllergies().then(r => console.log(r));
+        fetchAllergies().then(r => {});
     }, []);
 
     const handleSearch = async () => {
@@ -31,11 +33,10 @@ const SearchBar = ({ setMenu }) => {
                 },
             });
 
-            // Do something with the response data
             setResponse(response.data);
-            console.log(response.data);
         } catch (error) {
             console.error(error);
+            setError("Error searching for allergy. Please try again.");
         }
     };
 
@@ -66,6 +67,11 @@ const SearchBar = ({ setMenu }) => {
             <button className="btn btn-primary mt-2" onClick={handleSearch}>
                 Search
             </button>
+            {error && (
+                <div className="alert alert-danger mt-2" role="alert">
+                    {error}
+                </div>
+            )}
             {response && (
                 <div className="response-container mt-2">
                     <h5>Allergens:</h5>
