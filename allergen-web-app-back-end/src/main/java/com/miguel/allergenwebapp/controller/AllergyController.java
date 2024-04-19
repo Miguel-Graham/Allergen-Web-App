@@ -24,16 +24,16 @@ public class AllergyController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @CrossOrigin(origins = "http://localhost:3000" )
     @GetMapping("/getAllergyList")
-    public ResponseEntity<List<Allergy>> getAllAllergies(@RequestParam String E) {
-    List<Allergy> allergies = allergyServiceLogic.getAllAllergies();
-    if (allergies != null && !allergies.isEmpty()) {
-        return ResponseEntity.ok(allergies);
-    } else {
+    public ResponseEntity<List<Allergy>> getAllAllergies() {
+      List<Allergy> allergies = allergyServiceLogic.getAllAllergies();
+       if (allergies != null && !allergies.isEmpty()) {
+         return ResponseEntity.ok(allergies);
+       } else {
         return ResponseEntity.noContent().build();
+       }
     }
-}
 
 
 }
