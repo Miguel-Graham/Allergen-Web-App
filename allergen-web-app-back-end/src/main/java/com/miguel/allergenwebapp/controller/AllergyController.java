@@ -1,6 +1,7 @@
 package com.miguel.allergenwebapp.controller;
 
 import com.miguel.allergenwebapp.model.Allergy;
+import com.miguel.allergenwebapp.model.Dish;
 import com.miguel.allergenwebapp.service.AllergyServiceLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,16 @@ public class AllergyController {
        } else {
         return ResponseEntity.noContent().build();
        }
+    }
+
+    @GetMapping("/getMenuList")
+    public ResponseEntity<List<Dish>> getMenuList() {
+        List<Dish> menuList = allergyServiceLogic.getMenuList();
+        if (menuList != null && !menuList.isEmpty()) {
+            return ResponseEntity.ok(menuList);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
 
 

@@ -40,5 +40,10 @@ public class AllergyServiceLogic implements AllergyService {
         return allergyRepository.findAll();
     }
 
+    @Override
+    public List<Dish> getMenuList() {
+        return dishRepository.findAll();
+    }
+
 
 }
