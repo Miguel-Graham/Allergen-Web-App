@@ -21,7 +21,7 @@ const SearchBar = () => {
             }
         };
 
-        fetchAllergies().then(r => {});
+        fetchAllergies();
     }, []);
 
     const handleSearch = async () => {
