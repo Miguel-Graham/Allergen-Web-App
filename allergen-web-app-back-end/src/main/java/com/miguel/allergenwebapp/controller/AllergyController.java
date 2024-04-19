@@ -24,8 +24,7 @@ public class AllergyController {
             return ResponseEntity.notFound().build();
         }
     }
-    @CrossOrigin(origins = "http://localhost:3000" )
-    @GetMapping("/getAllergies")
+    @GetMapping("/getAllergyList")
     public ResponseEntity<List<Allergy>> getAllAllergies() {
     List<Allergy> allergies = allergyServiceLogic.getAllAllergies();
     if (allergies != null && !allergies.isEmpty()) {
