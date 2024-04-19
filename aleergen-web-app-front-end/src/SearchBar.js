@@ -3,7 +3,7 @@ import axios from "axios";
 import "./SearchBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const SearchBar = ({ setMenu }) => {
+const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedAllergy, setSelectedAllergy] = useState("");
     const [response, setResponse] = useState("");
