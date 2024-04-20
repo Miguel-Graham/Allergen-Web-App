@@ -21,7 +21,13 @@ const SideNav = ({ setSearchTerm }) => {
     return (
         <div className="sidenav">
             {menuItems.map((item) => (
-                <a key={item.id} href="#" onClick={() => setSearchTerm(item.name)}>{item.name}</a>
+                <input
+                    key={item.id}
+                    type="text"
+                    value={item.name}
+                    readOnly
+                    onClick={() => setSearchTerm(item.name)}
+                />
             ))}
         </div>
     );
