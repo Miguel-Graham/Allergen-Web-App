@@ -8,7 +8,7 @@ const Result = ({output}) => {
                 {output.map((item, index) => (
                     <div key={index} className='result-item'>
                         <h2>{item.allergyName}</h2>
-                        <p>{item.description} calories</p>
+                        <p>{item.description}</p>
                     </div>
                 ))}
             </div>
