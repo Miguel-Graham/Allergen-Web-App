@@ -49,16 +49,26 @@ public class AllergyServiceLogic implements AllergyService {
 
     @Override
     public List<AllergyResult> resultList(String dishName) {
-        Dish dish = dishRepository.findByName(dishName.toUpperCase());
-        if (dish == null) return null; // Check if dish is null
-
-        List<DishAllergy> dishAllergies = dishAllergyRepository.findByDishId(dish.getId());
-        if (dishAllergies == null) return null;
+        AllergyResult empty = new AllergyResult("No allergies found", "No allergies found");
 
         List<AllergyResult> allergyResults = new ArrayList<>(); // Initialize the list
 
+        Dish dish = dishRepository.findByName(dishName.toUpperCase());
+        if (dish == null) {
+            allergyResults.add(empty);
+            return allergyResults;  // Return empty list if dish is null
+        }; // Check if dish is null
+
+        List<DishAllergy> dishAllergies = dishAllergyRepository.findByDishId(dish.getId());
+        if (dishAllergies == null){
+            allergyResults.add(empty);
+            return allergyResults;  // Return empty list if dishAllergies is null
+
+        };
+
+
         for (DishAllergy dishAllergy : dishAllergies) {
-            Allergy allergy = allergyRepository.findById(dishAllergy.getAllergy().getId()).orElse(null); // Use .orElse(null) to handle empty Optional
+            Allergy allergy = allergyRepository.findById(dishAllergy.getAllergy().getId()).orElse(null);
             if (allergy != null) { // Check if allergy is null
                 AllergyResult allergyResult = new AllergyResult(allergy.getName(), dishAllergy.getDescription());
                 allergyResults.add(allergyResult);
