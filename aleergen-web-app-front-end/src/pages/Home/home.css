@@ -1,0 +1,19 @@
+
+ .search-bar-container {
+     display: flex;
+     width: 40%;
+     padding-top: 20vh;
+     margin: auto;
+     flex-direction: column;
+     align-items: center;
+     min-width: 200px;
+
+ }
+
+ .home{
+     background-color: #eee;
+     height: 100vh;
+     width: 100vw;
+
+ }
+

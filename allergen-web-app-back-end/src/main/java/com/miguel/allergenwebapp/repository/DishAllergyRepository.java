@@ -6,11 +6,11 @@ import com.miguel.allergenwebapp.model.DishAllergy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface DishAllergyRepository extends JpaRepository<DishAllergy, Integer> {
-    DishAllergy findByDishAndAllergy(Dish dish, Allergy allergy);
     DishAllergy findByDishIdAndAllergyId(int dishid, int allergyid);
-    Optional<DishAllergy> findByDishNameAndAllergyName(String dishName, String allergyName);
+    List<DishAllergy> findByDishId(int dishid);
 }

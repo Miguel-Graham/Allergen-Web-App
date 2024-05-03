@@ -49,4 +49,7 @@ public class DishAllergy {
         this.dish = dish;
     }
 
+    public Allergy getAllergy() {
+        return this.allergy;
+    }
 }

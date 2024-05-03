@@ -1,0 +1,26 @@
+.results-container{
+    margin: 80px auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    scroll-behavior: auto;
+}
+
+.result-item{
+    flex-basis: 31%;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+.results{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.result-item h2 {
+    font-size: 1.2em; /* Adjust this value to your preference */
+}

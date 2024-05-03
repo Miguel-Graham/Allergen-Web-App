@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import SearchBar from './SearchBar.js';
-import Navbar from './Navbar.js';
-import SideNav from "./SideNav.js";
 import './index.css';
+import './App.css';
+import NavBar from "./components/NavBar/NavBar.js";
+import Home from "./pages/Home/home.js";
 
 function App() {
-  const [setMenu] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-// filter menu items based on selected allergies
 
-  return (
-      <div>
-        <SideNav setSearchTerm={setSearchTerm}/>
-        <Navbar />
-        <h1></h1>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-      </div>
-  );
+
+    return (
+        <div>
+       <NavBar/>
+       <Home/>
+        </div>
+    );
 }
 
 export default App;

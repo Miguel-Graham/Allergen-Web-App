@@ -1,6 +1,7 @@
 package com.miguel.allergenwebapp.controller;
 
 import com.miguel.allergenwebapp.model.Allergy;
+import com.miguel.allergenwebapp.model.AllergyResult;
 import com.miguel.allergenwebapp.model.Dish;
 import com.miguel.allergenwebapp.service.AllergyServiceLogic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +38,20 @@ public class AllergyController {
     }
 
     @GetMapping("/getMenuList")
-    public ResponseEntity<List<Dish>> getMenuList() {
-        List<Dish> menuList = allergyServiceLogic.getMenuList();
+    public ResponseEntity<List<Dish>> getMenuList(String keyword) {
+        List<Dish> menuList = allergyServiceLogic.getMenuList(keyword);
         if (menuList != null && !menuList.isEmpty()) {
             return ResponseEntity.ok(menuList);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    @GetMapping("/resultList")
+    public ResponseEntity<List<AllergyResult>> resultList(String dishName) {
+        List<AllergyResult> allergyResults = allergyServiceLogic.resultList(dishName);
+        if (allergyResults != null && !allergyResults.isEmpty()) {
+            return ResponseEntity.ok(allergyResults);
         } else {
             return ResponseEntity.noContent().build();
         }

@@ -1,0 +1,10 @@
+ .search-result{
+     padding: 10px 20px;
+     font-family: "Roboto Slab", serif;
+     font-size: inherit;
+ }
+
+ .search-result:hover{
+     background-color: #efefef;
+     cursor: pointer;
+ }

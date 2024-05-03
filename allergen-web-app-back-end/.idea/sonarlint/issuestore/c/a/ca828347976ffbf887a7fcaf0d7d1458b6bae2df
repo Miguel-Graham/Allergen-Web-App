@@ -1,7 +1,11 @@
 
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ßôÚÀï1J$cab9c419-2ff9-458a-af79-a9ce0a62d776
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÎÕúó1J$84d435c7-1b48-4fe7-9840-56cc3b46e090
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ßôÚÀï1J$ac8e7952-e8a3-499d-8331-9bdb3cd869db
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÎÕúó1J$ff751bca-a4fc-4ce0-9484-f91f31d217f4
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8àôÚÀï1J$d1e83658-ce8a-474c-a71a-bd5bda9860b3
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÎÕúó1J$327b6a01-3f1b-4cf0-9cd8-755ece0164e1
+n
+java:S11685"+Return an empty collection instead of null.(²µïÔ8®†ãúó1J$827c0e68-ec12-430f-93bf-c4a5c09d395a
+n
+java:S11688"+Return an empty collection instead of null.(Œ–åâ8¯†ãúó1J$384aa40a-d713-4129-b205-621bba5262f9
