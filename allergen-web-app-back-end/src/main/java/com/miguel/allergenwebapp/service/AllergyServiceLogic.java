@@ -57,14 +57,14 @@ public class AllergyServiceLogic implements AllergyService {
         if (dish == null) {
             allergyResults.add(empty);
             return allergyResults;  // Return empty list if dish is null
-        }; // Check if dish is null
+        } // Check if dish is null
 
         List<DishAllergy> dishAllergies = dishAllergyRepository.findByDishId(dish.getId());
         if (dishAllergies == null){
             allergyResults.add(empty);
             return allergyResults;  // Return empty list if dishAllergies is null
 
-        };
+        }
 
 
         for (DishAllergy dishAllergy : dishAllergies) {
