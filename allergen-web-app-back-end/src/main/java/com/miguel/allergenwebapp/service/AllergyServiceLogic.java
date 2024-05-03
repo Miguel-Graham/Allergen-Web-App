@@ -68,6 +68,11 @@ public class AllergyServiceLogic implements AllergyService {
 
 
         for (DishAllergy dishAllergy : dishAllergies) {
+            if (dishAllergy.getAllergy() == null) {
+                allergyResults.add(empty);
+                return allergyResults;
+                // Return empty list if dishAllergy is null
+            } // Check if dishAllergy is null
             Allergy allergy = allergyRepository.findById(dishAllergy.getAllergy().getId()).orElse(null);
             if (allergy != null) { // Check if allergy is null
                 AllergyResult allergyResult = new AllergyResult(allergy.getName(), dishAllergy.getDescription());
