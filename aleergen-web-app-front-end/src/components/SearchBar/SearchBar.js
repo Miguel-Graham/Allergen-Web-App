@@ -39,12 +39,14 @@ const SearchBar = ({ setResults, food, setShowResults, setOutput}) => {
     return (
         <div>
             <div className='input-wrapper'>
-                <button className='search-button' onClick={handleButtonClick}><FaSearch className='search-icon' /></button>
+
                 <input
                     placeholder='Search for a food'
                     value={input}
                     onChange={handleChange}
                 />
+                <button className='search-button' onClick={handleButtonClick}><FaSearch className='search-icon'/>
+                </button>
             </div>
         </div>
     );
