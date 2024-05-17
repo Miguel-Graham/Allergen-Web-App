@@ -28,7 +28,9 @@ s
 Csrc/main/java/com/miguel/allergenwebapp/service/AllergyService.java,4\c\4c5f17c81b723232ef2087ebcf2a9a11c20b9974
 v
 Fsrc/main/java/com/miguel/allergenwebapp/repository/DishRepository.java,a\3\a3c8668d0d3773fa9b9878478bc1fdbceae217e0
-j
-:src/main/java/com/miguel/allergenwebapp/model/Results.java,2\5\2550a85243e5ec1bc3f26a30f900e53b59d8ceeb
 p
 @src/main/java/com/miguel/allergenwebapp/model/AllergyResult.java,2\8\28d376f8efa525038ab1ec7ad4ce2bfa99a5cac7
+n
+>src/main/java/com/miguel/allergenwebapp/service/PdfParser.java,b\b\bb9172660b2b4e0c82163799983d50bcd09740c2
+n
+>src/main/java/com/miguel/allergenwebapp/model/DishDetails.java,2\b\2b3eb69783b49cc1528352a5d78481d40673e755

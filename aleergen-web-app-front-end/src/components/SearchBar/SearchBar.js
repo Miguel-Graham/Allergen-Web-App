@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { FaSearch } from "react-icons/fa";
 import './SearchBar.css';
-import {fetchMenuItems, fetchResultList} from "../../api/api.js";
+import {fetchIngredients, fetchMenuItems, fetchResultList} from "../../api/api.js";
 
 const SearchBar = ({ setResults, food, setShowResults, setOutput}) => {
     const [input, setInput] = useState('');

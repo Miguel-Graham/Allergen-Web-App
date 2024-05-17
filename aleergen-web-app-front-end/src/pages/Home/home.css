@@ -1,7 +1,7 @@
 
  .search-bar-container {
      display: flex;
-     width: 40%;
+     width: 50%;
      padding-top: 20vh;
      margin: auto;
      flex-direction: column;
@@ -16,4 +16,3 @@
      width: 100vw;
 
  }
-

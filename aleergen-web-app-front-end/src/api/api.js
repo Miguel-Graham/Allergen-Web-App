@@ -33,3 +33,15 @@ export const fetchResultList = async (dishName) => {
         console.error(error);
     }
 };
+export const fetchIngredients = async (dishName) => {
+    try {
+        const response = await axios.get("/allergy/getIngredients", {
+            params: {
+                dishName: dishName
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}

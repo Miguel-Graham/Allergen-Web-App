@@ -4,6 +4,7 @@ public class AllergyResult {
     private String allergyName;
     private String description;
 
+
     public AllergyResult() {
     }
 
@@ -28,4 +29,6 @@ public class AllergyResult {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

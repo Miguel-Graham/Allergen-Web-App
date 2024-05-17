@@ -3,10 +3,15 @@ package com.miguel.allergenwebapp.controller;
 import com.miguel.allergenwebapp.model.Allergy;
 import com.miguel.allergenwebapp.model.AllergyResult;
 import com.miguel.allergenwebapp.model.Dish;
+import com.miguel.allergenwebapp.model.DishDetails;
 import com.miguel.allergenwebapp.service.AllergyServiceLogic;
+import com.miguel.allergenwebapp.service.PdfParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -15,6 +20,8 @@ import java.util.List;
 public class AllergyController {
     @Autowired
     private AllergyServiceLogic allergyServiceLogic;
+    @Autowired
+    private PdfParser pdfParser;
 
     //@CrossOrigin(origins = "http://localhost:3000" )
     @GetMapping("/getAllergy")
@@ -48,14 +55,17 @@ public class AllergyController {
     }
 
     @GetMapping("/resultList")
-    public ResponseEntity<List<AllergyResult>> resultList(String dishName) {
+    public ResponseEntity<DishDetails> resultList(@RequestParam String dishName) {
         List<AllergyResult> allergyResults = allergyServiceLogic.resultList(dishName);
-        if (allergyResults != null && !allergyResults.isEmpty()) {
-            return ResponseEntity.ok(allergyResults);
+        String ingredients = pdfParser.getIngredients(dishName);
+        if (allergyResults != null && !allergyResults.isEmpty() && ingredients != null) {
+            DishDetails dishDetails = new DishDetails(allergyResults, ingredients);
+            return ResponseEntity.ok(dishDetails);
         } else {
             return ResponseEntity.noContent().build();
         }
     }
+
 
 
 }

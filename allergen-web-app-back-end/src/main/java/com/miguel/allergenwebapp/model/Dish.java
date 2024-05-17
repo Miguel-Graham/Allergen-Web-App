@@ -19,6 +19,9 @@ public class Dish {
     @JdbcTypeCode(SqlTypes.INTEGER)
     private int id;
 
+    @Column(name = "tds_num")
+    private int tdsNum;
+
     @Column(name = "name")
     private String name;
 
@@ -55,6 +58,14 @@ public class Dish {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getTdsNum() {
+        return tdsNum;
+    }
+
+    public void setTdsNum(int tdsNum) {
+        this.tdsNum = tdsNum;
     }
 
 }
