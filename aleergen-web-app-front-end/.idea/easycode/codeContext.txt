@@ -1,0 +1,906 @@
+<relevant_code>
+
+
+
+<file file_path=/README.md>
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+</file>
+
+
+
+<file file_path=/src/components/SearchResult/SearchResult.js>
+import React from 'react';
+import './SearchResult.css';
+
+const SearchResult = ({result, setFood, setShowResults}) => {
+    return (
+        <div className='search-result' onClick={(e) =>{
+            setFood(result.name);
+            setShowResults(false)}}>
+            {result.name}
+        </div>
+    );
+};
+
+export default SearchResult;
+
+</file>
+
+
+
+<file file_path=/public/index.html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+
+            crossorigin="anonymous"
+    ></script>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>AllerWare</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
+
+</file>
+
+
+
+<file file_path=/src/index.js>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App.js';
+import reportWebVitals from './reportWebVitals.js';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+</file>
+
+
+
+<file file_path=/src/api/api.js>
+import axios from "axios";
+
+export const fetchMenuItems  = async (keyword) => {
+    try {
+        const response = await axios.get("/allergy/getMenuList", {
+            params: {
+                keyword: keyword
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+export const fetchAllergies = async () => {
+    try {
+        const response = await axios.get("/allergy/getAllergyList");
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const fetchResultList = async (dishName) => {
+    try {
+        const response = await axios.get("/allergy/resultList", {
+            params: {
+                dishName: dishName
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+export const fetchIngredients = async (dishName) => {
+    try {
+        const response = await axios.get("/allergy/getIngredients", {
+            params: {
+                dishName: dishName
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+</file>
+
+
+
+<file file_path=/src/App.js>
+import './index.css';
+import './App.css';
+import NavBar from "./components/NavBar/NavBar.js";
+import Home from "./pages/Home/home.js";
+import Edit from "./pages/Edit/edit.js";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+function App() {
+
+
+    return (
+    <Router>
+       <NavBar/>
+            <Routes>
+                <Route exact path='/' element={<Home/>}/>
+                <Route path='/edit' element={<Edit/>}/>
+            </Routes>
+    </Router>
+    );
+}
+
+export default App;
+
+</file>
+
+
+
+<file file_path=/src/components/NavBar/NavBar.js>
+import React from 'react'
+import './NavBar.css'
+import {LensBlurRounded} from "@mui/icons-material";
+import {Link} from "react-router-dom";
+
+const NavBar = () => {
+    return (
+       <nav className='contain'>
+          <span><LensBlurRounded />Allergy Tracker</span>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/edit">Edit</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+              </ul>
+       </nav>
+    );
+};
+
+export default NavBar;
+
+</file>
+
+
+
+<file file_path=/package.json>
+{
+  "name": "aleergen-web-app-front-end",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.8",
+    "bootstrap": "^4.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.2.0",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.15",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
+
+</file>
+
+
+
+<file file_path=/public/manifest.json>
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+
+</file>
+
+
+
+<file file_path=/src/pages/Edit/edit.js>
+import React from 'react';
+import './edit.css';
+import SearchBar from "../../components/SearchBar/SearchBar.js";
+
+const Edit = () => {
+    return (
+        <div className="edit-container">
+            <SearchBar />
+        </div>
+    );
+};
+
+export default Edit;
+
+</file>
+
+
+
+<file file_path=/nginx/html/index.html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+</file>
+
+
+
+<file file_path=/src/components/Result/Result.js>
+import React from 'react';
+import './Result.css';
+
+const Result = ({output}) => {
+    // Check if output is an object and contains the properties you expect
+    if (typeof output === 'object' && output !== null && 'allergyResults' in output && 'ingredients' in output) {
+        return (
+            <div className='results-container'>
+                <div className='results'>
+                    {/* Map over the list and render each item */}
+                    {output.allergyResults.map((item, index) => (
+                        <div key={index} className='result-item'>
+                            <h2>{item.allergyName}</h2>
+                            <p>{item.description}</p>
+                        </div>
+                    ))}
+                </div>
+                {/* Render the string in a div below the list */}
+                <div className='output-string'>
+                    <h2>Ingredients</h2>
+                   <div className='text'> {output.ingredients} </div>
+                </div>
+            </div>
+        );
+    } else {
+        return null;
+    }
+};
+
+export default Result;
+
+</file>
+
+
+
+<file file_path=/package-lock.json>
+
+        "url": "https://opencollective.com/webpack"
+      }
+    },
+    "node_modules/css-minimizer-webpack-plugin/node_modules/source-map": {
+      "version": "0.6.1",
+      "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+      "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/css-prefers-color-scheme": {
+      "version": "6.0.3",
+      "resolved": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-6.0.3.tgz",
+      "integrity": "sha512-4BqMbZksRkJQx2zAjrokiGMd07RqOa2IxIrrN10lyBe9xhn9DEvjUK79J6jkeiv9D9hQFXKb6g1jwU62jziJZA==",
+      "bin": {
+        "css-prefers-color-scheme": "dist/cli.cjs"
+      },
+      "engines": {
+        "node": "^12 || ^14 || >=16"
+      },
+      "peerDependencies": {
+        "postcss": "^8.4"
+      }
+    },
+    "node_modules/css-select": {
+      "version": "4.3.0",
+      "resolved": "https://registry.npmjs.org/css-select/-/css-select-4.3.0.tgz",
+      "integrity": "sha512-wPpOYtnsVontu2mODhA19JrqWxNsfdatRKd64kmpRbQgh1KtItko5sTnEpPdpSaJszTOhEMlF/RPz28qj4HqhQ==",
+      "dependencies": {
+        "boolbase": "^1.0.0",
+        "css-what": "^6.0.1",
+        "domhandler": "^4.3.1",
+        "domutils": "^2.8.0",
+        "nth-check": "^2.0.1"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/fb55"
+      }
+    },
+    "node_modules/css-select-base-adapter": {
+
+// ...rest of code...
+
+    "node_modules/jest-circus/node_modules/color-convert": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+      "dependencies": {
+        "color-name": "~1.1.4"
+      },
+      "engines": {
+        "node": ">=7.0.0"
+      }
+    },
+    "node_modules/jest-circus/node_modules/color-name": {
+      "version": "1.1.4",
+      "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
+    },
+    "node_modules/jest-circus/node_modules/diff-sequences": {
+      "version": "27.5.1",
+      "resolved": "https://registry.npmjs.org/diff-sequences/-/diff-sequences-27.5.1.tgz",
+      "integrity": "sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==",
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/jest-circus/node_modules/expect": {
+      "version": "27.5.1",
+      "resolved": "https://registry.npmjs.org/expect/-/expect-27.5.1.tgz",
+      "integrity": "sha512-E1q5hSUG2AmYQwQJ041nvgpkODHQvB+RKlB4IYdru6uJsyFTRyZAP463M+1lINorwbqAmUggi6+WwkD8lCS/Dw==",
+      "dependencies": {
+        "@jest/types": "^27.5.1",
+        "jest-get-type": "^27.5.1",
+        "jest-matcher-utils": "^27.5.1",
+
+// ...rest of code...
+
+      "resolved": "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz",
+      "integrity": "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==",
+      "dependencies": {
+        "ansi-styles": "^4.1.0",
+        "supports-color": "^7.1.0"
+      },
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/chalk?sponsor=1"
+      }
+    },
+    "node_modules/jest-jasmine2/node_modules/color-convert": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+      "dependencies": {
+        "color-name": "~1.1.4"
+      },
+      "engines": {
+        "node": ">=7.0.0"
+      }
+    },
+    "node_modules/jest-jasmine2/node_modules/color-name": {
+      "version": "1.1.4",
+      "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
+    },
+    "node_modules/jest-jasmine2/node_modules/diff-sequences": {
+      "version": "27.5.1",
+      "resolved": "https://registry.npmjs.org/diff-sequences/-/diff-sequences-27.5.1.tgz",
+      "integrity": "sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==",
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+
+// ...rest of code...
+
+    "node_modules/jest-snapshot/node_modules/color-convert": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+      "dependencies": {
+        "color-name": "~1.1.4"
+      },
+      "engines": {
+        "node": ">=7.0.0"
+      }
+    },
+    "node_modules/jest-snapshot/node_modules/color-name": {
+      "version": "1.1.4",
+      "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
+      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
+    },
+    "node_modules/jest-snapshot/node_modules/diff-sequences": {
+      "version": "27.5.1",
+      "resolved": "https://registry.npmjs.org/diff-sequences/-/diff-sequences-27.5.1.tgz",
+      "integrity": "sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==",
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/jest-snapshot/node_modules/expect": {
+      "version": "27.5.1",
+      "resolved": "https://registry.npmjs.org/expect/-/expect-27.5.1.tgz",
+      "integrity": "sha512-E1q5hSUG2AmYQwQJ041nvgpkODHQvB+RKlB4IYdru6uJsyFTRyZAP463M+1lINorwbqAmUggi6+WwkD8lCS/Dw==",
+      "dependencies": {
+        "@jest/types": "^27.5.1",
+        "jest-get-type": "^27.5.1",
+        "jest-matcher-utils": "^27.5.1",
+
+// ...rest of code...
+
+      "resolved": "https://registry.npmjs.org/postcss-colormin/-/postcss-colormin-5.3.1.tgz",
+      "integrity": "sha512-UsWQG0AqTFQmpBegeLLc1+c3jIqBNB0zlDGRWR+dQ3pRKJL1oeMzyqmH3o2PIfn9MBdNrVPWhDbT769LxCTLJQ==",
+      "dependencies": {
+        "browserslist": "^4.21.4",
+        "caniuse-api": "^3.0.0",
+        "colord": "^2.9.1",
+        "postcss-value-parser": "^4.2.0"
+      },
+      "engines": {
+        "node": "^10 || ^12 || >=14.0"
+      },
+      "peerDependencies": {
+        "postcss": "^8.2.15"
+      }
+    },
+    "node_modules/postcss-convert-values": {
+      "version": "5.1.3",
+      "resolved": "https://registry.npmjs.org/postcss-convert-values/-/postcss-convert-values-5.1.3.tgz",
+      "integrity": "sha512-82pC1xkJZtcJEfiLw6UXnXVXScgtBrjlO5CBmuDQc+dlb88ZYheFsjTn40+zBVi3DkfF7iezO0nJUPLcJK3pvA==",
+      "dependencies": {
+        "browserslist": "^4.21.4",
+        "postcss-value-parser": "^4.2.0"
+      },
+      "engines": {
+        "node": "^10 || ^12 || >=14.0"
+      },
+      "peerDependencies": {
+        "postcss": "^8.2.15"
+      }
+    },
+    "node_modules/postcss-custom-media": {
+      "version": "8.0.2",
+      "resolved": "https://registry.npmjs.org/postcss-custom-media/-/postcss-custom-media-8.0.2.tgz",
+      "integrity": "sha512-7yi25vDAoHAkbhAzX9dHx2yc6ntS4jQvejrNcC+csQJAXjj15e7VcWfMgLqBNAbOvqi5uIa9huOVwdHbf+sKqg==",
+      "dependencies": {
+        "postcss-value-parser": "^4.2.0"
+      },
+      "engines": {
+        "node": "^12 || ^14 || >=16"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/csstools"
+      },
+
+// ...rest of code...
+
+        "url": "https://opencollective.com/csstools"
+      },
+      "peerDependencies": {
+        "postcss": "^8.2"
+      }
+    },
+    "node_modules/postcss-normalize": {
+      "version": "10.0.1",
+      "resolved": "https://registry.npmjs.org/postcss-normalize/-/postcss-normalize-10.0.1.tgz",
+      "integrity": "sha512-+5w18/rDev5mqERcG3W5GZNMJa1eoYYNGo8gB7tEwaos0ajk3ZXAI4mHGcNT47NE+ZnZD1pEpUOFLvltIwmeJA==",
+      "dependencies": {
+        "@csstools/normalize.css": "*",
+        "postcss-browser-comments": "^4",
+        "sanitize.css": "*"
+      },
+      "engines": {
+        "node": ">= 12"
+      },
+      "peerDependencies": {
+        "browserslist": ">= 4",
+        "postcss": ">= 8"
+      }
+    },
+    "node_modules/postcss-normalize-charset": {
+      "version": "5.1.0",
+      "resolved": "https://registry.npmjs.org/postcss-normalize-charset/-/postcss-normalize-charset-5.1.0.tgz",
+      "integrity": "sha512-mSgUJ+pd/ldRGVx26p2wz9dNZ7ji6Pn8VWBajMXFf8jk7vUoSrZ2lt/wZR7DtlZYKesmZI680qjr2CeFF2fbUg==",
+      "engines": {
+        "node": "^10 || ^12 || >=14.0"
+      },
+      "peerDependencies": {
+        "postcss": "^8.2.15"
+      }
+    },
+    "node_modules/postcss-normalize-display-values": {
+      "version": "5.1.0",
+      "resolved": "https://registry.npmjs.org/postcss-normalize-display-values/-/postcss-normalize-display-values-5.1.0.tgz",
+      "integrity": "sha512-WP4KIM4o2dazQXWmFaqMmcvsKmhdINFblgSeRgn8BJ6vxaMyaJkwAzpPpuvSIoG/rmX3M+IrRZEz2H0glrQNEA==",
+      "dependencies": {
+</file>
+
+
+
+<file file_path=/src/App.test.js>
+import { render, screen } from '@testing-library/react';
+import App from './App.js';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+</file>
+
+
+
+<file file_path=/src/setupTests.js>
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+</file>
+
+
+
+<file file_path=/src/components/SearchResultsList/SearchResultList.js>
+import React from 'react';
+import './SearchResultList.css';
+import SearchResult from "../SearchResult/SearchResult.js";
+
+const SearchResultList = ({results, setFood, setShowResults}) => {
+
+    return (
+        <div className= 'results-list'>
+            {
+                results && results.map((result) => {
+                    return (
+                        <SearchResult setFood={setFood} setShowResults={setShowResults} result={result} key={result.id} />
+                    );
+                })
+            }
+        </div>
+    );
+};
+
+export default SearchResultList;
+
+</file>
+
+
+
+<file file_path=/src/pages/Home/home.js>
+import React, {useState} from 'react';
+import './home.css';
+import SearchBar from "../../components/SearchBar/SearchBar.js";
+import SearchResultList from "../../components/SearchResultsList/SearchResultList.js";
+import Result from "../../components/Result/Result.js";
+
+const Home = () => {
+    const [results, setResults] = useState([]);
+    const [food, setFood] = useState('');
+    const [showResults, setShowResults] = useState(false);
+    const [output, setOutput] = useState([]);
+
+    return (
+        <div className='home'>
+        <div className= 'search-bar-container'>
+            <SearchBar setOutput={setOutput} setResults = {setResults} food={food} setShowResults={setShowResults}/>
+            {showResults && <SearchResultList results = {results} setFood = {setFood} setShowResults={setShowResults}/>}
+        </div>
+            <Result output={output}/>
+        </div>
+    );
+};
+
+export default Home;
+
+</file>
+
+
+
+<file file_path=/nginx/html/50x.html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Error</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>An error occurred.</h1>
+<p>Sorry, the page you are looking for is currently unavailable.<br/>
+Please try again later.</p>
+<p>If you are the system administrator of this resource then you should check
+the error log for details.</p>
+<p><em>Faithfully yours, nginx.</em></p>
+</body>
+</html>
+
+</file>
+
+
+
+<file file_path=/src/reportWebVitals.js>
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+
+</file>
+
+
+
+<file file_path=/src/components/SearchBar/SearchBar.js>
+import React, {useEffect, useState} from 'react';
+import { FaSearch } from "react-icons/fa";
+import './SearchBar.css';
+import {fetchMenuItems, fetchResultList} from "../../api/api.js";
+
+const SearchBar = ({ setResults, food, setShowResults, setOutput}) => {
+    const [input, setInput] = useState('');
+
+    useEffect(() => {
+        setInput(food);
+    }, [food]);
+
+    const fetchFood = async (value) => {
+        try {
+            const response = await fetchMenuItems(value);
+            setResults(response);
+            console.log(response.name);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleButtonClick = async () => {
+        try {
+            const response = await fetchResultList(input);
+            setOutput(response);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleChange = (e) => {
+        const inputValue = e.target.value;
+        setInput(inputValue);
+        setShowResults(inputValue !== ''); // Show results only if input value is not empty
+        fetchFood(inputValue); // Call fetchFood with updated input value
+    }
+
+    return (
+        <div>
+            <div className='input-wrapper'>
+
+                <input
+                    placeholder='Search for a food'
+                    value={input}
+                    onChange={handleChange}
+                />
+                <button className='search-button' onClick={handleButtonClick}><FaSearch className='search-icon'/>
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default SearchBar;
+
+</file>
+
+
+
+</relevant_code>
